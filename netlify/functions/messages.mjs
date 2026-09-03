@@ -3,8 +3,8 @@ const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN || 'wedding123';
 
 // The wedding these messages belong to (Mohamed & Hala).
-// Set from your Supabase 'weddings' table.
-const WEDDING_ID = process.env.WEDDING_ID || 'b56f980e-20bf-4c43-98e7-11fe606b5ad9';
+// Provided via the WEDDING_ID Netlify environment variable.
+const WEDDING_ID = process.env.WEDDING_ID;
 
 const TABLE = 'messages';
 const REST = `${SUPABASE_URL || ''}/rest/v1/${TABLE}`;
