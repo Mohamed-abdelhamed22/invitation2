@@ -1,6 +1,9 @@
 {
   "private": true,
   "version": "1.0.0",
-  "description": "Netlify functions for the wedding invitation guest messages",
-  "type": "module"
+  "description": "Wedding invitation site with a Vercel serverless function for guest messages",
+  "type": "module",
+  "devDependencies": {
+    "vercel": "^59.11.2"
+  }
 }

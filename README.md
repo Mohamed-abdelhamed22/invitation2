@@ -2,20 +2,20 @@
 
 A simple responsive wedding invitation with a cinematic curtain-opening splash screen.
 
-Guest messages can be collected in two ways:
-
-- **Option A — Netlify + Supabase (recommended, online)**: guests leave messages that are stored in a free cloud database and you view them on an admin page.
-- **Option B — Local Node server**: messages are saved to a local `messages.txt` file, viewable on a local admin page. Only works on your computer while the server is running.
+Guests leave messages that are stored in **Supabase** and can be viewed by you on an admin page. The site and its API are hosted on **Vercel**.
 
 ---
 
-## Option A — Deploy to Netlify (with Supabase)
+## Deploy to Vercel
 
-This uses a Superbase project that **already has a `messages` table** with this schema:
-`id`, `wedding_id`, `guest_name`, `message`, `created_at`. The function in `netlify/functions/messages.mjs` writes and reads that table for one wedding (set by `WEDDING_ID`).
+This project uses a Supabase database that **already has a `messages` table** with this
+schema: `id`, `wedding_id`, `guest_name`, `message`, `created_at`.
+The serverless function in `api/messages.mjs` writes and reads that table for one wedding
+(set by `WEDDING_ID`).
 
-### 1. Set environment variables in Netlify
-In your Netlify site, go to **Site configuration → Environment variables** and add:
+### 1. Set environment variables in Vercel
+
+In your project → **Settings → Environment Variables**, add these (set for **Production**, **Preview** and **Development**):
 
 | Name | Value |
 |------|-------|
@@ -24,42 +24,19 @@ In your Netlify site, go to **Site configuration → Environment variables** and
 | `WEDDING_ID` | the wedding id messages belong to (from the `weddings` table) |
 | `ADMIN_TOKEN` | a secret only you know |
 
-These same values live (already filled in) in the local **`.env.local`** file — copy them into Netlify.
+These same values live (already filled in) in the local **`.env.local`** file — copy them into Vercel.
 
-### 2. Set the admin password to match
-The admin page sends the password as the admin token. **They must match**:
-- `admin.html` → `const PASSWORD = 'your_admin_token_here';` (use the same value as `ADMIN_TOKEN`)
-- `ADMIN_TOKEN` env var above = the same value
+### 2. Deploy
 
-### 3. Deploy your site
-1. Push this folder to a GitHub/GitLab repo, or use **Netlify Drop** by dragging the folder into [app.netlify.com/drop](https://app.netlify.com/drop).
-2. Netlify will detect this is a static site and deploy it. Your visitors open your site URL.
-3. Your admin page is at **`/admin`** (e.g. `https://yoursite.netlify.app/admin`). Sign in with the password to see all messages.
+1. Push this folder to a GitHub/GitLab repo.
+2. In the Vercel dashboard → **Add New → Project**, import the repo.
+   (Or run `vercel` locally from this folder.)
+3. Framework Preset: **Other** — Vercel serves the static files automatically.
+   No build command or output directory is needed (the `api/` folder becomes the serverless functions).
+4. Deploy. Your public site URL will be `https://<project>.vercel.app`.
+5. Admin page: **`/admin`** (e.g. `https://<project>.vercel.app/admin`). Sign in with `ADMIN_TOKEN`.
 
-> **Note:** The deploy needs to pick up the functions. If you use the GitHub workflow, they deploy automatically. If you use Netlify Drop, the `netlify/functions` folder is bundled too.
-
-> **Security note:** Right now the `messages` table is readable by anyone who calls the Supabase REST API (the publishable key can read it). The `schema.sql` file includes optional SQL to enable Row Level Security and block public reads. If you apply that, the admin GET also needs a `SUPABASE_SERVICE_ROLE_KEY` — contact me to update the function accordingly.
-
----
-
-## Option B — Run locally with the Node server
-
-The **Node.js server** saves guest messages to a text file and shows them on a local admin page.
-
-1. Install [Node.js](https://nodejs.org/) (if not already installed).
-2. Open Command Prompt in this folder and run:
-
-```text
-node server.js
-```
-
-3. Open `http://localhost:3000` in your browser to see the invitation.
-4. A text file named `messages.txt` is created automatically. Every message a guest sends is appended to it.
-5. Admin page: open `http://localhost:3000/admin` and enter the password.
-
-Change the local password in both places so they match:
-- `server.js` → `const ADMIN_PASSWORD = 'wedding123';`
-- `admin.html` → `const PASSWORD = 'wedding123';`
+> **Local dev:** run `vercel dev`. Put your real values in `.env.local` (already set) — Vercel reads them.
 
 ---
 

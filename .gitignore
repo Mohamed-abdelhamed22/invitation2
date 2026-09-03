@@ -1,13 +1,11 @@
-# Local message storage (Option B)
-messages.txt
-
-# Secrets / local env (Option A) — never commit real keys
+# Secrets — never commit real keys
 .env
-.env.*
-!.env.example
+.env.local
+
+# Local Vercel dev data (if any)
+.vercel
 
 # Node
 node_modules/
 
-# Local Netlify folder
-.netlify
+.vercel
