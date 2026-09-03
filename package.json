@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "description": "Netlify functions for the wedding invitation guest messages",
+  "type": "module"
+}

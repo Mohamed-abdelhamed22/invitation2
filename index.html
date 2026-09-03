@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mohammed & Hala — Wedding Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="opening" class="opening" aria-label="Wedding invitation opening">
+  <div class="opening-bg"></div><div class="opening-vignette"></div>
+  <div class="opening-shine"></div>
+  <div class="opening-content">
+    <div class="ornament">✦</div><div class="opening-small">TOGETHER WITH THEIR FAMILIES</div>
+    <h1><span id="splashGroom"></span><small>&amp;</small><span id="splashBride"></span></h1>
+    <div class="gold-line"></div><div class="opening-date" id="splashDate"></div>
+  </div>
+  <div class="particles"></div><button id="skipOpening" class="skip">Skip</button>
+</div>
+<div class="page-shell">
+<main>
+<section class="hero section" id="home"><div class="hero-card reveal"><p class="eyebrow">SAVE THE DATE</p><h1><span id="groom"></span><span class="amp">&amp;</span><span id="bride"></span></h1><div class="ornament">❧</div><p class="date" id="dateFrench"></p><p class="time" id="timeFrench"></p></div></section>
+<section class="invitation section"><div class="invite-copy reveal"><p class="arabic" id="arabicInvitation"></p><p class="arabic" id="arabicDate"></p><div class="divider"></div><h2 id="venueNameHero"></h2><p class="city" id="venueCityHero"></p></div></section>
+<section class="section calendar-section"><div class="section-heading reveal"><p class="eyebrow">SAVE THE DATE</p><h2>Our Wedding Day</h2></div><div class="calendar-frame reveal"><img src="assets/calendar.png" alt="September calendar with the wedding day marked"></div></section>
+<section class="countdown section reveal"><p class="eyebrow" style="font-weight:600">Countdown To See You</p><div class="count-grid"><div><strong id="days">00</strong><span>Days</span></div><div><strong id="hours">00</strong><span>Hours</span></div><div><strong id="minutes">00</strong><span>Minutes</span></div><div><strong id="seconds">00</strong><span>Seconds</span></div></div></section>
+<section class="gallery section reveal"><div class="gallery-scroller"><div class="gallery-grid" id="gallery"></div></div></section>
+<section class="section venue-section" id="venue"><div class="section-heading reveal"><p class="eyebrow">VENUE</p><h2 id="venueName"></h2><h4 class="venue-hall">ساحة ١</h4><p id="venueCity"></p></div><div class="venue-card reveal"><iframe id="venueMap" class="venue-map" title="Venue location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="venue-actions reveal"><a class="solid-btn" id="mapsBtn" target="_blank" rel="noopener">Google Maps Directions</a></div></section>
+<section class="section rsvp" id="rsvp"><div class="section-heading reveal"><p class="eyebrow">LEAVE A MESSAGE</p><h2>We will make this day a precious memory</h2></div><div class="rsvp-wrap reveal"><button id="openMessage" class="solid-btn" type="button">Leave a Message 💌</button><form id="messageForm" class="message-form"><label>Your Name<input name="name" required placeholder="Your name"></label><label>Your Message<textarea name="message" rows="4" required placeholder="Write your wishes for the couple..."></textarea></label><button class="solid-btn" type="submit">Send My Message</button><p class="form-message" id="formMessage"></p></form></div></section>
+<footer class="footer section"><div class="tiny-mark">✧</div><p class="footer-names"><span id="footerGroom"></span> &amp; <span id="footerBride"></span></p><p>We look forward to see you</p></footer>
+</main></div><audio id="music" src="assets/music.mp3" loop autoplay></audio><button id="musicToggle" class="music-toggle" type="button" aria-label="Toggle music">♪</button><script src="config.js"></script><script src="app.js"></script>
+</body></html>

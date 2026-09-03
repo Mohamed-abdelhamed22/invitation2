@@ -1,0 +1,13 @@
+# Local message storage (Option B)
+messages.txt
+
+# Secrets / local env (Option A) — never commit real keys
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+
+# Local Netlify folder
+.netlify
