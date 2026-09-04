@@ -53,9 +53,8 @@ function closeOpening() {
 
 if (C.splash.enabled) {
   requestAnimationFrame(() => opening.classList.add('play'));
-  setTimeout(closeOpening, C.splash.duration);
+  setTimeout(() => opening.classList.add('ready'), C.splash.duration);
   if (!C.splash.showSkip) $('skipOpening').style.display = 'none';
-  $('skipOpening').onclick = closeOpening;
 } else {
   closeOpening();
 }
@@ -111,7 +110,7 @@ $('messageForm').addEventListener('submit', async e => {
 
 const music = $('music');
 const musicToggle = $('musicToggle');
-music.volume = 0.25;
+music.volume = 0.15;
 let musicStarted = false;
 
 function startMusic() {
@@ -121,6 +120,14 @@ function startMusic() {
     musicToggle.classList.add('playing');
   }).catch(() => {});
 }
+$('enterInvitation').addEventListener('click', () => {
+  startMusic();
+  closeOpening();
+});
+$('skipOpening').addEventListener('click', () => {
+  startMusic();
+  closeOpening();
+});
 music.play().then(() => {
   musicStarted = true;
 }).catch(() => {
