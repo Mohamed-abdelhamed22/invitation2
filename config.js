@@ -24,7 +24,6 @@ const INVITATION = {
     enabled: true,
     duration: 4200,
     curtainDuration: 2200,
-    namesDelay: 2100,
-    showSkip: true
+    namesDelay: 2100
   }
 };
