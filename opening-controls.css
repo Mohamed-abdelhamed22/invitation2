@@ -1,0 +1,38 @@
+.opening-date {
+  font-weight: 500;
+  color: #f2d69d;
+  text-shadow: 0 1px 3px rgba(10, 6, 3, 0.95), 0 0 10px rgba(10, 6, 3, 0.7);
+}
+
+.opening-enter {
+  margin-top: 28px;
+  padding: 12px 24px;
+  border: 1px solid rgba(230, 193, 123, 0.75);
+  background: rgba(18, 13, 8, 0.46);
+  color: #f4d79e;
+  font: 500 11px Montserrat, sans-serif;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease, background 0.2s ease;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.opening.ready .opening-content {
+  pointer-events: auto;
+}
+
+.opening.ready .opening-enter {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.opening-enter:hover,
+.opening-enter:focus-visible {
+  background: rgba(154, 117, 67, 0.72);
+  outline: 1px solid #f4d79e;
+  outline-offset: 3px;
+}
