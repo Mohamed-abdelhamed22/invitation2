@@ -54,7 +54,6 @@ function closeOpening() {
 if (C.splash.enabled) {
   requestAnimationFrame(() => opening.classList.add('play'));
   setTimeout(() => opening.classList.add('ready'), C.splash.duration);
-  if (!C.splash.showSkip) $('skipOpening').style.display = 'none';
 } else {
   closeOpening();
 }
@@ -121,10 +120,6 @@ function startMusic() {
   }).catch(() => {});
 }
 $('enterInvitation').addEventListener('click', () => {
-  startMusic();
-  closeOpening();
-});
-$('skipOpening').addEventListener('click', () => {
   startMusic();
   closeOpening();
 });
