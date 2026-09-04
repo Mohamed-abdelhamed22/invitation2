@@ -1,0 +1,14 @@
+.gallery-grid {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.gallery-card,
+.gallery-card img {
+  backface-visibility: hidden;
+}
+
+@keyframes galleryScroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
