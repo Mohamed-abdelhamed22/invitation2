@@ -11,6 +11,7 @@ set('footerGroom', C.couple.groom);
 set('footerBride', C.couple.bride);
 set('dateFrench', C.dateFrench);
 set('timeFrench', C.timeFrench);
+set('timeFrenchCalendar', C.timeFrench);
 const arabicLines = C.arabicInvitation.split('\n');
 $('arabicInvitation').innerHTML = arabicLines[0] + '\n<strong>' + (arabicLines[1] || '') + '</strong>';
 set('arabicDate', C.arabicDate);
